@@ -5,17 +5,17 @@ const methodOverride = require("method-override");
 
 const app = express();
 
-mongoose.connect("mongodb://20.0.153.128:10999/fahimDB", { 
-useNewUrlParser: true, 
-useUnifiedTopology: true,   
-}) 
+// mongoose.connect("mongodb://20.0.153.128:10999/fahimDB", { 
+// useNewUrlParser: true, 
+// useUnifiedTopology: true,   
+// }) 
     
-.then(() => console.log("MongoDB Connected"))   
-.catch((err) => console.error("MongoDB Connection Error:", err)); 
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(express.json());  
-app.use(methodOverride("_method"));  
-app.set("view engine", "ejs"); 
+// .then(() => console.log("MongoDB Connected"))   
+// .catch((err) => console.error("MongoDB Connection Error:", err)); 
+// app.use(bodyParser.urlencoded({ extended: true })); 
+// app.use(express.json());  
+// app.use(methodOverride("_method"));  
+// app.set("view engine", "ejs"); 
  
 
 const studentSchema = new mongoose.Schema({ name: String, age: Number, course: String }); 
@@ -29,5 +29,5 @@ app.get("/", (req, res) => {
 }); 
 
 
-app.listen(3000, "Server is up and running on port 3000")
+app.listen(3000, ()=>{console.log("Server is up and running on port 3000")})
 
